@@ -5,7 +5,6 @@ export const BookContext = createContext();
 
 export const BookContextProvider = (props) => {
   const [book, dispatch] = useReducer(bookReducer, [], () => {
-    console.log('hi');
     const localData = localStorage.getItem('books');
     return localData !== null ? JSON.parse(localStorage.getItem('books')) : [];
   });
