@@ -3,9 +3,14 @@ import { RoomContext } from '../contexts/rootContext';
 
 import Title from '../components/Title';
 
+const getUniqe = (items, value) => {
+  return [...new Set(items.map((item) => item[value]))];
+};
+
 const RoomFilter = () => {
   const context = useContext(RoomContext);
   const {
+    rooms,
     handleChange,
     type,
     capacity,
@@ -17,7 +22,37 @@ const RoomFilter = () => {
     breakfast,
     pets,
   } = context;
-  return <div>hello from room filter</div>;
+
+  // get unique type
+  let types = getUniqe(rooms, 'type');
+  types = ['all', ...types];
+  types = types.map((item, index) => {
+    return (
+      <option value={item} key={index}>
+        {item}
+      </option>
+    );
+  });
+
+  return (
+    <section className='filter-container'>
+      <Title title='search rooms' />
+      <form className='filter-form'>
+        <div className='form-group'>
+          <label htmlFor='type'>room type</label>
+          <select
+            className='form-control'
+            name='type'
+            id='type'
+            value={type}
+            onChange={handleChange}
+          >
+            {types}
+          </select>
+        </div>
+      </form>
+    </section>
+  );
 };
 
 export default RoomFilter;

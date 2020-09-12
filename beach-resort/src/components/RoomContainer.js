@@ -7,8 +7,11 @@ import { RoomContext } from '../contexts/rootContext';
 
 const RoomContainer = () => {
   const context = useContext(RoomContext);
-  console.log(context);
-  const { loading, sortedRooms, rooms } = context;
+  let { loading, sortedRooms, rooms, type } = context;
+
+  if (type !== 'all') {
+    sortedRooms = sortedRooms.filter((room) => room.type === type);
+  }
 
   if (loading) {
     return <Loading />;

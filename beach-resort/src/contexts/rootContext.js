@@ -46,14 +46,9 @@ const RootContext = ({ children }) => {
   );
 
   const handleChange = (e) => {
-    const type = e.target.type;
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(type, name, value);
-  };
-
-  const filterRooms = () => {
-    console.log('hello');
+    const target = e.target;
+    const value = e.type === 'checkbox' ? target.checked : target.value;
+    dispatch({ type: 'TYPE_CHANGE', changeType: value });
   };
 
   useEffect(() => {

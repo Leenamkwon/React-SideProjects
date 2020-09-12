@@ -10,6 +10,8 @@ const RoomReducer = (state, action) => {
       return { ...state, loading: action.loading };
     case 'FILTERING':
       return { ...state, maxPrice: action.maxPrice, maxSize: action.maxSize };
+    case 'TYPE_CHANGE':
+      return { ...state, type: action.changeType };
     default:
       return state;
   }
