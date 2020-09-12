@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { RoomContext } from '../contexts/rootContext';
 import { Link } from 'react-router-dom';
-import Hero from '../components/resumable/Hero';
 import Banner from '../components/resumable/Banner';
 import StyledHero from '../styledComponent/StyleHero';
 
