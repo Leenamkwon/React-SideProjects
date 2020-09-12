@@ -7,10 +7,14 @@ import { RoomContext } from '../contexts/rootContext';
 
 const RoomContainer = () => {
   const context = useContext(RoomContext);
-  let { loading, sortedRooms, rooms, type } = context;
+  let { loading, sortedRooms, rooms, type, capacity } = context;
 
   if (type !== 'all') {
     sortedRooms = sortedRooms.filter((room) => room.type === type);
+  }
+
+  if (parseInt(capacity) !== 1) {
+    sortedRooms = sortedRooms.filter((room) => parseInt(room.capacity) > 1);
   }
 
   if (loading) {
@@ -18,7 +22,6 @@ const RoomContainer = () => {
   }
   return (
     <div>
-      Room Containersdasd
       <RoomsFilter rooms={rooms} />
       <RoomsList rooms={sortedRooms} />
     </div>

@@ -34,12 +34,21 @@ const RoomFilter = () => {
     );
   });
 
+  let people = getUniqe(rooms, 'capacity');
+  people = people.map((item, index) => {
+    return (
+      <option value={item} key={index}>
+        {item}
+      </option>
+    );
+  });
+
   return (
     <section className='filter-container'>
       <Title title='search rooms' />
       <form className='filter-form'>
         <div className='form-group'>
-          <label htmlFor='type'>room type</label>
+          <label htmlFor='type'>원하는 방을 선택해주세요</label>
           <select
             className='form-control'
             name='type'
