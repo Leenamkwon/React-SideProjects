@@ -7,6 +7,8 @@ const ExpenseForm = ({
   handleSubmit,
   handleCharge,
   handleAmount,
+  edit,
+  item,
 }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -26,18 +28,18 @@ const ExpenseForm = ({
         <div className='form-group'>
           <label htmlFor='amount'>지출 비용</label>
           <input
-            type='text'
+            type='number'
             className='form-control'
             id='amount'
             name='amount'
-            placeholder='예: 3000 "원은 생략"'
+            placeholder='예: 2000'
             value={amount}
             onChange={handleAmount}
           />
         </div>
       </div>
       <button type='submit' className='btn'>
-        등록 <MdSend />
+        {edit ? '수정하기' : '추가하기'} <MdSend />
       </button>
     </form>
   );
