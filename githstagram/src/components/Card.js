@@ -15,6 +15,18 @@ const Card = () => {
     twitter_username,
   } = githubUser;
 
+  const isProfile = (icon, com) => {
+    if (com) {
+      return (
+        <>
+          {icon} {com}
+        </>
+      );
+    } else {
+      return null;
+    }
+  };
+
   return (
     <Wrapper>
       <header>
@@ -28,10 +40,13 @@ const Card = () => {
       <p className='bio'>{bio}</p>
       <div className='links'>
         <p>
-          <MdBusiness /> {company && company}
+          {/* <MdBusiness /> {company || 'HOME'} */}
+          {/* <MdBusiness /> {company && company} */}
+          {isProfile(<MdBusiness />, company)}
         </p>
         <p>
-          <MdLocationOn /> {location || 'earth'}
+          {/* <MdLocationOn /> {location || 'earth'} */}
+          {isProfile(<MdLocationOn />, location)}
         </p>
         {blog && (
           <a href={`https://${blog}`}>

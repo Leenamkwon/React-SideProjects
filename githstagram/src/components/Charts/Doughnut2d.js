@@ -32,7 +32,6 @@ const Doughtnut2d = ({ data }) => {
       // Chart Configuration
       chart: {
         caption: 'Star for languages',
-        theme: 'fusion',
         decimals: 0,
         doughnutRadius: '75%',
         showPercentValues: 0,
