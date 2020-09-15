@@ -9,19 +9,21 @@ import {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path='/' exact>
-          <Dashboard />
-        </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-        <Route path='*'>
-          <Error />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <AuthWrapper>
+      <BrowserRouter>
+        <Switch>
+          <PrivateRoute path='/' exact>
+            <Dashboard />
+          </PrivateRoute>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/*'>
+            <Error />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </AuthWrapper>
   );
 }
 

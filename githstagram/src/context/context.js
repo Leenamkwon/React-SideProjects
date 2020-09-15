@@ -71,7 +71,7 @@ const GithubProvider = ({ children }) => {
   // error
   useEffect(() => {
     checkRequest();
-  }, []);
+  });
 
   return (
     <GithubContext.Provider
